@@ -1,0 +1,87 @@
+~/clmystery/clmystery$ grep -r "CLUE"
+hint2:	grep "CLUE" crimescene
+instructions:Fortunately the sergeant went through and marked the real clues with the word "CLUE" in all caps.
+mystery/crimescene:CLUE: Footage from an ATM security camera is blurry but shows that the perpetrator is a tall male, at least 6'.
+mystery/crimescene:CLUE: Found a wallet believed to belong to the killer: no ID, just loose change, and membership cards for AAA, Delta SkyMiles, the local library, and the Museum of Bash History. The cards are totally untraceable and have no name, for some reason.
+mystery/crimescene:CLUE: Questioned the barista at the local coffee shop. He said a woman left right before they heard the shots. The name on her latte was Annabel, she had blond spiky hair and a New Zealand accent.
+
+~/clmystery/clmystery$ grep -ri "Annabel"
+mystery/memberships/AAdvantage:Annabel Fuglsang
+mystery/memberships/AAdvantage:Annabel Church
+mystery/memberships/Museum_of_Bash_History:Annabel Church
+mystery/memberships/Museum_of_Bash_History:Oluwasegun Annabel
+mystery/memberships/AAA:Annabel Church
+mystery/memberships/REI:Annabel Church
+mystery/memberships/Fitness_Galaxy:Oluwasegun Annabel
+mystery/memberships/Fitness_Galaxy:Annabel Church
+mystery/memberships/Rotary_Club:Annabel Sun
+mystery/memberships/Rotary_Club:Annabel Fuglsang
+mystery/memberships/Rotary_Club:Annabel Church
+
+mystery/people:Annabel Sun	F	26	Hart Place, line 40			> interview-47246024:Ms. Sun has brown hair and is not from New Zealand.  Not the witness from the cafe.
+mystery/people:Oluwasegun Annabel	M	37	Mattapan Street, line 173	> Don't have all cards
+mystery/people:Annabel Church	F	38	Buckingham Place, line 179		> No male Church and dont have all mem cards
+mystery/people:Annabel Fuglsang	M	40	Haley Street, line 176		> Don't have all membership cards
+											> Annabel probably doesnt know the killer
+
+mystery/crimescene:CLUE: Questioned the barista at the local coffee shop. He said a woman left right before they heard the shots. The name on her latte was Annabel, she had blond spiky hair and a New Zealand accent.
+mystery/vehicles:Owner: Oluwasegun Annabel
+mystery/vehicles:Owner: Annabel Church
+mystery/vehicles:Owner: Annabel Sun
+mystery/vehicles:Owner: Annabel Fuglsang
+cheatsheet.md:	Annabel Church
+hint4:To find all the Annabels' addresses, use the 'people' file:
+hint4:	grep "Annabel" people
+hint4:Notice that not all of the results are worth investigating.  Remember what we know about Annabel.
+~/clmystery/clmystery$ 
+
+
+											> Searched for Mattapan address and found interview 
+											  Found all interviews using grep -ri "see interview"
+											  
+grep -ri --no-filename "see interview" mystery/streets/ | cut -d" " -f3 | sed "s/#//g" | while read -r line; do tput setaf 1; echo "$line"; tput sgr0; cat mystery/interviews/interview-$line; done
+
+***********
+Interviews
+***********
+
+
+79667499		> Doesnt have all cards
+Miranda fits the profile, but is female.  Barring a clever disguise, should not be considered a suspect.
+56892213		> Dont have all cards
+Questioned Daniel Sinker about his whereabouts yesterday.
+
+He's tall enough to be a suspect, but he drives a Subaru, not a Honda, and the license plate doesn't match.
+9620713		> Possible sus, need to eliminate other sus - mystery/people:Jeremy Bowers	M	34	Dunstable Road, line 284
+Home appears to be empty, no answer at the door.
+
+After questioning neighbors, appears that the occupant may have left for a trip recently.
+
+Considered a suspect until proven otherwise, but would have to eliminate other suspects to confirm.
+699607			> grep -r "L337.*9"  -A5 | grep Owner | cut -d" " -f2,3 | while read -r line; do grep -r "$line"; done
+Interviewed Ms. Church at 2:04 pm.  Witness stated that she did not see anyone she could identify as the shooter, that she ran away as soon as the shots were fired.
+
+However, she reports seeing the car that fled the scene.  Describes it as a blue Honda, with a license plate that starts with "L337" and ends with "9"
+
+862173			> Blue Toyota not Honda. No 2nd car, not a sus
+Matches our profile, except car does not match witness accounts.
+
+Does Waite own a second car?  If so, he may be a suspect.  Otherwise is not a suspect.
+
+628618
+Fits the profile, except for the make of his car.  Should be considered a suspect if and only if there is evidence Boyer owns a second car.
+47246024
+Ms. Sun has brown hair and is not from New Zealand.  Not the witness from the cafe.
+290346
+Drives a similar car to the description.
+
+Is a SkyMiles, TCPL, Museum of Bash History, and AAA member.
+
+Bostock is 6' 4", easily tall enough to match the camera footage.
+
+However, upon questioning, Bostock can prove that he was out of town on the morning of the murder, multiple witnesses and credit card transactions confirm.
+
+871877
+Mr. Fuglsang is male and has brown hair.  Not the witness from the cafe.
+904020
+Maher is not considered a suspect.  Video evidence confirms that she was away at a professional soccer game on the morning in question, even though it was a workday.
